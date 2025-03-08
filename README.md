@@ -1,0 +1,98 @@
+# Cursor Advanced Workflow Project
+
+This is a sample project for establishing and demonstrating advanced workflows when working with Cursor, an AI-powered code editor. This project implements specific rules and processes to ensure a controlled, deliberate development experience.
+
+## Cursor Workflow Rules
+
+1. **Plan-First Approach**
+   - The AI assistant will always plan out changes before making them
+   - Plans will be shared with the user for review
+   - Planning includes considering alternatives and trade-offs
+
+2. **Approval Required**
+   - All proposed changes require explicit user approval
+   - No code will be written without confirmation
+   - The assistant will wait for user feedback before proceeding
+
+3. **Documentation-Driven**
+   - All interactions are logged in development.txt
+   - Each action includes justification and model information
+   - Changes are tracked with clear reasoning
+
+## Git Integration Workflow
+
+This project follows a structured Git workflow to manage changes:
+
+1. **Branch Creation**
+   - Each task is assigned a descriptive feature/bugfix name
+   - A new branch is created for each task
+   - All code changes occur in task-specific branches
+
+2. **Code Implementation & Push**
+   - Changes are made and committed to the feature branch
+   - Code is pushed to the remote repository
+   - A reference link is saved in the llm directory
+
+3. **Pull Request & Review**
+   - PR is created from feature branch to development
+   - A formal review is conducted with recommendations
+   - Justifications for merge/rejection are documented
+   - User has final approval authority
+
+4. **Merge Process**
+   - Upon user approval, PRs are merged to development
+   - The merge action is documented
+   - Ready for the next task
+
+## Project Structure
+
+- `/llm/` - Directory for LLM-related configurations and tools
+- `development.txt` - Log of all interactions, commands, and actions
+- `README.md` - This file
+
+## Development Log Format
+
+All interactions in the development.txt file follow this format:
+
+```
+user: [user query/instruction]
+
+agent: [assistant response]
+
+action: [specific action taken]
+justification: [reasoning behind the action]
+model: [AI model used, e.g., Claude 3.7 Sonnet]
+```
+
+## Pull Request Review Format
+
+PR reviews follow this structured format:
+
+```
+## PR Review for [branch name]
+
+**PR Link**: [URL to pull request]
+**Changes**: [summary of changes]
+**Testing**: [testing performed or recommended]
+**Issues**: [any concerns or issues found]
+**Recommendation**: [MERGE/NEEDS REVISION]
+**Justification**: [reasoning for recommendation]
+```
+
+## Purpose
+
+This project serves as a template for establishing good practices when working with AI coding assistants in Cursor. By following these workflow rules, development becomes more:
+
+- **Deliberate**: Changes are planned and considered
+- **Transparent**: All actions are justified and logged
+- **Controlled**: The user maintains approval authority
+- **Documented**: The development process is captured
+- **Version-Controlled**: Changes are properly tracked through Git
+- **Reviewed**: Code changes undergo systematic review
+
+## Getting Started
+
+1. Review this README to understand the workflow
+2. Check development.txt to see the history of interactions
+3. Follow the established patterns when making new requests
+4. Use the Git workflow for all code changes 
