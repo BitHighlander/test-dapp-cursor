@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Script for appending development log entries efficiently
-# Usage: ./append_log.sh [feature-name] "user|agent|action" "content"
+# Usage: ./llm/append_log.sh [feature-name] "user|agent|action" "content"
 
 # Default location for development logs
 LOGS_DIR="llm/logs"

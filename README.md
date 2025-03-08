@@ -47,10 +47,12 @@ This project follows a structured Git workflow to manage changes:
 ## Project Structure
 
 - `/llm/` - Directory for LLM-related configurations and tools
-  - `cursor_config.md` - Configuration and rules for the workflow
-  - `pull_requests.md` - Tracking for pull requests
+  - `/rules/` - Long-lived configuration files tracked in Git
+    - `cursor_config.md` - Configuration and rules for the workflow
+    - `pull_requests.md` - Tracking for pull requests
   - `append_log.sh` - Script for efficient log management
-  - `/logs/` - Directory for organized development logs
+  - `migrate_logs.sh` - Script for migrating log data
+  - `/logs/` - Directory for organized development logs (not tracked in Git)
     - `/[feature-name]/` - Subdirectories for each feature
       - `YYYY-MM-DD-feature-name.txt` - Daily logs per feature
 - `README.md` - This file
@@ -84,6 +86,18 @@ For efficient log management, use the provided script:
 ./llm/append_log.sh [feature-name] "action" "description" "model" "justification"
 ```
 
+## Git Configuration
+
+Log files are intentionally excluded from Git tracking to keep the repository lean. 
+The `.gitignore` file is configured to exclude:
+
+- All log files in the `/llm/logs/` directory
+- Backup files (*.bak)
+- Other common files that shouldn't be tracked
+
+The long-lived configuration files in `/llm/rules/` are tracked in Git as they 
+define the core workflow and don't change frequently.
+
 ## Pull Request Review Format
 
 PR reviews follow this structured format:
@@ -114,7 +128,7 @@ This project serves as a template for establishing good practices when working w
 ## Getting Started
 
 1. Review this README to understand the workflow
-2. Check feature-specific logs in the `llm/logs/` directory
+2. Check feature-specific logs in the `llm/logs/` directory (local only)
 3. Follow the established patterns when making new requests
 4. Use the Git workflow for all code changes
 5. Use the append_log.sh script for efficient log management 
