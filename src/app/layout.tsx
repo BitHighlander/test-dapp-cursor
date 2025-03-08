@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { Provider } from './provider';
 
 import { Geist, Geist_Mono } from "next/font/google";
-import { KKConnectionStatus } from '@/components/KKConnectionStatus'
-import { Box, Flex, Heading, HStack, Image } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react';
+import { Header } from '@/components/Header';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,40 +29,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Provider>
-          {/* Header */}
-          <Box 
-            as="header" 
-            height="60px" 
-            bg="gray.800" 
-            color="white" 
-            borderBottom="1px solid" 
-            borderColor="gray.700"
-            position="sticky"
-            top="0"
-            zIndex="1000"
-            width="100%"
-          >
-            <Flex 
-              height="100%" 
-              px={4} 
-              alignItems="center" 
-              justifyContent="space-between"
-              maxWidth="1200px"
-              mx="auto"
-            >
-              <HStack gap={2}>
-                <Image 
-                  src="/favicon.ico" 
-                  alt="KeepKey Logo" 
-                  height="24px" 
-                  width="24px"
-                />
-                <Heading as="h1" size="md">KeepKey Template</Heading>
-              </HStack>
-              
-              <KKConnectionStatus size="md" />
-            </Flex>
-          </Box>
+          {/* Header with Navigation */}
+          <Header />
           
           {/* Main Content */}
           <Box as="main">

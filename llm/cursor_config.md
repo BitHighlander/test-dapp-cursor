@@ -13,7 +13,7 @@
    - If changes are rejected, refine the plan based on feedback
 
 3. **Documentation Requirements**
-   - Log all interactions in the development.txt file
+   - Log all interactions in the appropriate log file
    - Include justification for each action
    - Record which model was used for each step
 
@@ -42,6 +42,23 @@
    - If accepted, merge PR into the development branch
    - Document the merge action
 
+## Logging System
+
+1. **Organization**
+   - Logs are organized by feature/branch in `llm/logs/[feature-name]/`
+   - Files are named with date and feature: `YYYY-MM-DD-feature-name.txt`
+   - Each log file contains all interactions for a single day's work on a feature
+
+2. **Log Appending**
+   - Use the `append_log.sh` script for efficient log entry creation
+   - Basic usage: `./llm/append_log.sh [feature-name] "entry-type" "content"`
+   - For actions: `./llm/append_log.sh [feature-name] "action" "description" "model" "justification"`
+
+3. **Log Reviewing**
+   - The script lists recent log files after each append
+   - Logs are searchable by feature name and date
+   - Content follows consistent formatting for easy reading
+
 ## Interaction Templates
 
 ### Plan Presentation
@@ -55,7 +72,7 @@ Here's my plan for [task]:
 Would you like me to proceed with this approach?
 ```
 
-### Action Documentation (for development.txt)
+### Action Documentation (for logs)
 ```
 action: [description of specific action]
 justification: [reasoning behind the action]
@@ -88,5 +105,5 @@ Would you like to approve this merge or review it further?
 
 - **Model**: Claude 3.7 Sonnet (default)
 - **Workflow**: Plan → Approve → Implement → Branch → Code → PR → Review → Merge
-- **Logging**: Comprehensive (all actions and justifications)
+- **Logging**: Feature-based logs in `llm/logs/[feature-name]/` directory
 - **Git Target**: Development branch as integration target 
